@@ -1,10 +1,17 @@
 # kitchen-test-helper
 This cookbook provides a suite of tools to assist with testing chef cookbooks when using kitchen-test and serverspec.
 
-- Node attributes dumpped to .json file for access within serverspec tests.
-- Fake databags created to simulate a managed chef environment returning databags.
+- [Node attributes][node-attributes-dump] dumped to .json file for access within serverspec tests.
+- [Databag Faker][data-bag-faker] - Fakes databags to simulate a managed chef environment returning databags.
+  - [Creating Fake Databags][create-databags]
+  - [Creating Fake Databags With Secure Information][secure-databags]
+  - [Creating Multiple Fake Databags][multiple-databags]
 
-
+[node-attributes-dump]: #node-attributes-dump
+[data-bag-faker]: #databag-faker
+[create-databags]: #creating-faked-databags
+[secure-databags]: #creating-faked-databags-with-secure-content
+[multiple-databags]: #multiple-databags
 
 
 ## Node Attributes Dump
@@ -107,7 +114,7 @@ suites:
 ```
 
 ##### Creating Faked Databags
-To add a databag, add fake_databags to the attributes in your 'kitchen.yml' following the example below.
+To add a databag, add fake_databags to the attributes in your `kitchen.yml` following the example below.
 This will create a databag item named `tuser.json` and will put it in the `users` databag.
 
 ```ruby
@@ -215,7 +222,7 @@ suites:
 ```
 
 The resulting databags would look like this:
-###### (`git-credentials/test`)
+###### `git-credentials/test`
 ```Json
 {
     "id": "test",
@@ -225,7 +232,7 @@ The resulting databags would look like this:
 }
 ```
 
-###### (`aws-credentials/test`)
+###### `aws-credentials/test`
 ```Json
 {
     "id": "test2",
