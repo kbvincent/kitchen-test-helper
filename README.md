@@ -22,7 +22,6 @@ metadata
 group :integration do
   cookbook 'kitchen-test-helper'
 end
-
 ```
 
 Add `kitchen-test-helper` to the top of the run list in the `.kitchen.yml` configuration:
@@ -88,7 +87,8 @@ Some cookbooks require databags to be created in order for the cookbook to corre
 This recipe will build a databag, place it in the correct local databag location, and allow future cookbooks to use the created databags as if they had been read from a chef server.
 ​
 To use this recipe, include it in your Kitchen yml runlist, before any other recipes:
-​```
+
+​```Ruby
 ---
 driver:
   name: vagrant
