@@ -1,0 +1,57 @@
+driver:
+  name: ec2
+  aws_ssh_key_id: <%= ENV['AWS_SSH_KEY'] %>
+  security_group_ids:  <%= ENV['AWS_SECURITY_GROUPS'] %>
+  region: <%= ENV['AWS_REGION'] %>
+  availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
+  require_chef_omnibus: true
+  subnet_id: <%= ENV['AWS_SUBNET'] %>
+  associate_public_ip: false
+  interface: private
+  tags:
+    OWNER: <%= ENV['AWS_OWNER_TAG'] %>
+
+provisioner:
+  name: chef_zero
+
+transport:
+  ssh_key: <%= ENV['SSH_KEY_PATH'] %><%= ENV['AWS_SSH_KEY'] %>.pem
+
+platforms:
+  - name: centos
+    driver:
+      image_id: <%= ENV['AWS_CENTOS_AMI_ID'] %>
+      instance_type: <%= ENV['LINUX_INSTANCE_SIZE'] %>
+      user_data: <%= ENV['LINUX_USER_DATA_PATH'] %>
+    transport:
+      username: <%= ENV['AWS_CENTOS_USERNAME'] %>
+  - name: windows-2012r2
+    driver:
+      image_id: <%= ENV['AWS_WINDOWS2012R2_AMI_ID'] %>
+      instance_type: <%= ENV['WINDOWS_INSTANCE_SIZE'] %>
+      user_data: <%= ENV['WINDOWS_USER_DATA_PATH'] %>
+    transport:
+      name: winrm
+
+suites:
+  - name: default
+    run_list:
+      - recipe[kitchen-test-helper]
+    attributes:
+      test: 'value'
+      fake_databags:
+        - data_bag: 'git-credentials'
+          content:
+            id: 'test'
+            key: <%= ENV['TEST_GIT_SSH_KEY'] %>
+            user.name: 'TestUser'
+            user.email: 'testuser@gmail.com'
+        - data_bag: 'users'
+          content:
+            id: 'tuser'
+            user.first_name: 'test'
+            user.last_name: 'user'
+            user.email: 'test_user@test.com'
+    chef_client:
+      config:
+        log_level: ":debug"

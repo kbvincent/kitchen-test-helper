@@ -1,0 +1,7 @@
+DEPENDENCIES
+  kitchen-test-helper
+    path: .
+    metadata: true
+
+GRAPH
+  kitchen-test-helper (1.0.0)

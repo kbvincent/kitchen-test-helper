@@ -1,0 +1,31 @@
+I, [2015-11-28T19:47:26.826856 #59675]  INFO -- default-windows-2012r2: -----> Verifying <default-windows-2012r2>...
+I, [2015-11-28T19:47:26.831253 #59675]  INFO -- default-windows-2012r2: Preparing files for transfer
+I, [2015-11-28T19:47:28.002259 #59675]  INFO -- default-windows-2012r2: -----> Busser installation detected (busser)
+I, [2015-11-28T19:47:28.002387 #59675]  INFO -- default-windows-2012r2: Installing Busser plugins: busser-serverspec
+I, [2015-11-28T19:47:30.825501 #59675]  INFO -- default-windows-2012r2: Plugin serverspec already installed
+I, [2015-11-28T19:47:31.307714 #59675]  INFO -- default-windows-2012r2: Removing C:/Users/vagrant/AppData/Local/Temp/verifier/suites/serverspec
+I, [2015-11-28T19:47:31.316454 #59675]  INFO -- default-windows-2012r2: Transferring files to <default-windows-2012r2>
+I, [2015-11-28T19:47:33.391735 #59675]  INFO -- default-windows-2012r2: -----> Running serverspec test suite
+I, [2015-11-28T19:47:35.775290 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.775394 #59675]  INFO -- default-windows-2012r2: File "C:\windows\temp\serverspec\"
+I, [2015-11-28T19:47:35.775575 #59675]  INFO -- default-windows-2012r2:   should be directory
+I, [2015-11-28T19:47:35.775650 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.775683 #59675]  INFO -- default-windows-2012r2: File "C:\windows\temp\serverspec\node.json"
+I, [2015-11-28T19:47:35.775798 #59675]  INFO -- default-windows-2012r2:   should be file
+I, [2015-11-28T19:47:35.775904 #59675]  INFO -- default-windows-2012r2:   should contain "\"test\": \"value\""
+I, [2015-11-28T19:47:35.775926 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.775942 #59675]  INFO -- default-windows-2012r2: File "C:/Users/vagrant\AppData\Local\Temp\kitchen\data_bags\git-credentials\test.json"
+I, [2015-11-28T19:47:35.776025 #59675]  INFO -- default-windows-2012r2:   should be file
+I, [2015-11-28T19:47:35.776044 #59675]  INFO -- default-windows-2012r2:   content
+I, [2015-11-28T19:47:35.776127 #59675]  INFO -- default-windows-2012r2:     should match "{\n  \"id\": \"test\",\n  \"key\": \"FakeKeyValueFakeKeyValue\",\n  \"user.name\": \"TestUser\",\n  \"user.email\": \"testuser@gmail.com\"\n}"
+I, [2015-11-28T19:47:35.776147 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.776162 #59675]  INFO -- default-windows-2012r2: File "C:/Users/vagrant\AppData\Local\Temp\kitchen\data_bags\users\tuser.json"
+I, [2015-11-28T19:47:35.776259 #59675]  INFO -- default-windows-2012r2:   should be file
+I, [2015-11-28T19:47:35.776278 #59675]  INFO -- default-windows-2012r2:   content
+I, [2015-11-28T19:47:35.776355 #59675]  INFO -- default-windows-2012r2:     should match "{\n  \"id\": \"tuser\",\n  \"user.first_name\": \"test\",\n  \"user.last_name\": \"user\",\n  \"user.email\": \"test_user@test.com\"\n}"
+I, [2015-11-28T19:47:35.776399 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.776415 #59675]  INFO -- default-windows-2012r2: Finished in 2.12 seconds (files took 0.56169 seconds to load)
+I, [2015-11-28T19:47:35.776431 #59675]  INFO -- default-windows-2012r2: 7 examples, 0 failures
+I, [2015-11-28T19:47:35.776444 #59675]  INFO -- default-windows-2012r2: 
+I, [2015-11-28T19:47:35.776564 #59675]  INFO -- default-windows-2012r2: C:/opscode/chef/embedded/bin/ruby.exe -IC:/Users/vagrant/AppData/Local/Temp/verifier/suites/serverspec -I'C:/Users/vagrant/AppData/Local/Temp/verifier/gems/gems/rspec-support-3.4.1/lib';'C:/Users/vagrant/AppData/Local/Temp/verifier/gems/gems/rspec-core-3.4.1/lib' 'C:/Users/vagrant/AppData/Local/Temp/verifier/gems/gems/rspec-core-3.4.1/exe/rspec' --pattern 'C:/Users/vagrant/AppData/Local/Temp/verifier/suites/serverspec/**/*_spec.rb' --color --format documentation --default-path C:/Users/vagrant/AppData/Local/Temp/verifier/suites/serverspec
+I, [2015-11-28T19:47:35.787366 #59675]  INFO -- default-windows-2012r2: Finished verifying <default-windows-2012r2> (0m8.96s).
