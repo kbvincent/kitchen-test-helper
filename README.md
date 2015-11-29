@@ -86,7 +86,7 @@ Some cookbooks require databags to be created in order for the cookbook to corre
 
 This recipe will build a databag, place it in the correct local databag location, and allow future cookbooks to use the created databags as if they had been read from a chef server.
 
-To use this recipe, include it in your Kitchen yml runlist, before any other recipes:
+To use this recipe, include it in your `kitchen.yml` run_list, before any other recipes:
 
 ```ruby
 ---
@@ -203,16 +203,35 @@ suites:
         - data_bag: 'git-credentials'
           content:
               id: 'test'
-              key: "<%= ENV['TEST_GIT_SSH_KEY'] %>"
+              key: "FakeKeyValueFakeKeyValue"
               user.name: 'TestUser'
               user.email: 'testuser@gmail.com'
         - data_bag: 'aws-credentials'
           content:
-              id: 'test'
-              key: "<%= ENV['TEST_AWS_KEY'] %>"
-              user.name: 'TestUser'
-              user.email: 'testuser@gmail.com’
+              id: 'test2'
+              key: "FakeKeyValueFakeKeyValue"
+              user.name: 'TestUser2'
+              user.email: 'testuser2@gmail.com’
 ```
 
+The resulting databags would look like this:
+###### (`git-credentials/test`)
+```Json
+{
+    "id": "test",
+    "key": "FakeKeyValueFakeKeyValue",
+    "user.name": "TestUser",
+    "user.email": "testuser@gmail.com"
+}
+```
 
+###### (`aws-credentials/test`)
+```Json
+{
+    "id": "test2",
+    "key": "FakeKeyValueFakeKeyValue",
+    "user.name": "TestUser2",
+    "user.email": "testuser2@gmail.com"
+}
+```
 
