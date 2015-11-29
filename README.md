@@ -16,7 +16,7 @@ This cookbook provides a suite of tools to assist with testing chef cookbooks wh
 
 ## Node Attributes Dump
 
-Including this cookbook will create a `.json` file with the contents of all of the current node's attributes.
+Including this cookbook will create a `.json` file with the contents of all of the current node's attributes.  The contents of the variables can then be used within your serverspec tests.
 
 ### How to use
 
@@ -50,7 +50,7 @@ suites:
       - recipe[<<<<>>>>>]
 ```
 
-Use the following `spec_helper.rb` file when attempting to use node attributes within serverspec tests.
+Use the following `spec_helper.rb` file when attempting to use node attributes within serverspec tests.  It will correctly configure the backend for either windows or linux systems, as well as set the `$node` variable with the contents of the dumped `node.json` file.
 ```ruby
 require 'serverspec'
 require 'pathname'
@@ -173,9 +173,9 @@ export TEST_GIT_SSH_KEY="FakeKeyValueFakeKeyValue"
 suites:
   - name: default
     run_list:
-      - recipe[kitchen-test-helper]
+      - recipe['kitchen-test-helper']
+      - recipe[<<<<>>>>>]
     attributes:
-      test: 'value'
       fake_databags:
         - data_bag: 'git-credentials'
           content:
@@ -204,8 +204,8 @@ suites:
   - name: default
     run_list:
       - recipe['kitchen-test-helper']
+      - recipe[<<<<>>>>>]
     attributes:
-      test: 'value'
       fake_databags:
         - data_bag: 'git-credentials'
           content:
@@ -232,7 +232,7 @@ The resulting databags would look like this:
 }
 ```
 
-###### `aws-credentials/test`
+###### `aws-credentials/test2`
 ```Json
 {
     "id": "test2",
