@@ -63,7 +63,7 @@ set :path, '/sbin:/usr/local/sbin:$PATH' unless os[:family] == 'windows'
 ```
 
 How to use the node's variables in serverspec tests:
-```
+```ruby
 describe file("#{$node['python']['prefix_dir']}/bin/python2.7") do
   it { should exist }
 end
