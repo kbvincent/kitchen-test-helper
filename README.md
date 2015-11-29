@@ -1,5 +1,5 @@
 # kitchen-test-helper
-This cookbook provides a suite of tools to assist with testing chef cookbooks when using kitchen-test and serverspec.
+This cookbook provides a suite of tools to assist with testing chef cookbooks when using [test-kitchen][https://github.com/test-kitchen/test-kitchen] and [serverspec][http://serverspec.org/].
 
 - [Node attributes][node-attributes-dump] dumped to .json file for access within serverspec tests.
 - [Databag Faker][data-bag-faker] - Fakes databags to simulate a managed chef environment returning databags.
