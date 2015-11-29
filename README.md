@@ -21,7 +21,7 @@ Including this cookbook will create a `.json` file with the contents of all of t
 ### How to use
 
 Include in Berksfile:
-```
+```ruby
 source 'https://supermarket.chef.io'
 
 metadata
