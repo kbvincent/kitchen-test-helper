@@ -1,0 +1,38 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7.1
+    driver:
+      box: centos-71
+      box_url: https://github.com/CommanderK5/packer-centos-template/releases/download/0.7.1/vagrant-centos-7.1.box
+  - name: centos-6.6
+  - name: windows-2012r2
+    driver_config:
+      box: opentable/win-2012r2-standard-amd64-nocm
+      network:
+        - ["forwarded_port", {guest: 3389, host: 3389}]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[kitchen-test-helper]
+    attributes:
+      test: 'value'
+      fake_databags:
+        - data_bag: 'git-credentials'
+          content:
+            id: 'test'
+            key: <%= ENV['TEST_GIT_SSH_KEY'] %>
+            user.name: 'TestUser'
+            user.email: 'testuser@gmail.com'
+        - data_bag: 'users'
+          content:
+            id: 'tuser'
+            user.first_name: 'test'
+            user.last_name: 'user'
+            user.email: 'test_user@test.com'
