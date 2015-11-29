@@ -1,0 +1,25 @@
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+pkg/
+ 
+# Berkshelf
+.vagrant
+/cookbooks
+Berksfile.lock
+vagrantfile
+ 
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+ 
+# Mac OS X
+*.DS_Store
+
+#Kitchen
+.kitchen/
+.kitchen.local.yml
