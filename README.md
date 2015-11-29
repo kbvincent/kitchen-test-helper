@@ -85,31 +85,9 @@ end
 Some cookbooks require databags to be created in order for the cookbook to correctly be ran.
 
 This recipe will build a databag, place it in the correct local databag location, and allow future cookbooks to use the created databags as if they had been read from a chef server.
-​
+
 To use this recipe, include it in your Kitchen yml runlist, before any other recipes:
 
-​```ruby
----
-driver:
-  name: vagrant
-
-provisioner:
-  name: chef_zero
-
-platforms:
-  - name: centos-6.6
-
-suites:
-  - name: default
-    run_list:
-      - recipe[kitchen-test-helper]
-      - recipe[<<<<>>>>>]
-```
-
-##### Creating Faked Databags
-To add a databag, add fake_databags to the attributes in your 'kitchen.yml' following the example below.
-This will create a databag item named `tuser.json` and will put it in the `users` databag.
-​
 ```ruby
 ---
 driver:
@@ -124,7 +102,29 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[kitchen-test-helper]
+      - recipe['kitchen-test-helper']
+      - recipe[<<<<>>>>>]
+```
+
+##### Creating Faked Databags
+To add a databag, add fake_databags to the attributes in your 'kitchen.yml' following the example below.
+This will create a databag item named `tuser.json` and will put it in the `users` databag.
+
+```ruby
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6.6
+
+suites:
+  - name: default
+    run_list:
+      - recipe['kitchen-test-helper']
       - recipe[<<<<>>>>>]
     attributes:
         fake_databags:
@@ -145,10 +145,11 @@ The resulting databag (`users/tuser`) would look like this:
     "user.email": "test_user@test.com"
 }
 ```
-​
+
 ##### Creating Faked Databags with Secure Content
 Some recipes require an SSH key, or other secure information that we do not want committed to github.
-​Following the same example as above, we will add a data_bag item to the fake_databags array, but this time we will include a key that has an environment variable setting it's value.
+
+Following the same example as above, we will add a data_bag item to the fake_databags array, but this time we will include a key that has an environment variable setting it's value.
 
 First we need to export the environment variable:
 ```Bash
@@ -188,27 +189,27 @@ The resulting databag (`git-credentials/test`) would look like this:
 ```
 
 ##### Multiple Databags
-To create multiple databags within the same kitchen.yml, follow this example:
+To create multiple databags within the same 'kitchen.yml', follow this example:
 This will create a databag named `test.json` within the `git-credentials` folder, as well as a databag named `test2.json` within the `aws-credentials` folder.
 
 ```ruby
 suites:
   - name: default
     run_list:
-      - recipe[kitchen-test-helper]
+      - recipe['kitchen-test-helper']
     attributes:
       test: 'value'
       fake_databags:
         - data_bag: 'git-credentials'
           content:
               id: 'test'
-              key: <%= ENV['TEST_GIT_SSH_KEY'] %>
+              key: "<%= ENV['TEST_GIT_SSH_KEY'] %>"
               user.name: 'TestUser'
               user.email: 'testuser@gmail.com'
         - data_bag: 'aws-credentials'
           content:
               id: 'test'
-              key: <%= ENV['TEST_AWS_KEY'] %>
+              key: "<%= ENV['TEST_AWS_KEY'] %>"
               user.name: 'TestUser'
               user.email: 'testuser@gmail.com’
 ```
