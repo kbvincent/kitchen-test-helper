@@ -2,8 +2,6 @@
 # Cookbook Name:: kitchen-test-helper
 # Recipe:: default
 #
-# Copyright 2015, Gannett
-#
 # All rights reserved - Do Not Redistribute
 
 include_recipe 'kitchen-test-helper::node-attributes'
