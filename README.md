@@ -25,7 +25,7 @@ end
 ```
 
 Add `kitchen-test-helper` to the top of the run list in the `.kitchen.yml` configuration:
-```
+```ruby
 ---
 driver:
   name: vagrant
@@ -44,7 +44,7 @@ suites:
 ```
 
 Use the following `spec_helper.rb` file when attempting to use node attributes within serverspec tests.
-```
+```ruby
 require 'serverspec'
 require 'pathname'
 require 'json'
@@ -88,7 +88,7 @@ This recipe will build a databag, place it in the correct local databag location
 ​
 To use this recipe, include it in your Kitchen yml runlist, before any other recipes:
 
-​```Ruby
+​```ruby
 ---
 driver:
   name: vagrant
@@ -110,7 +110,7 @@ suites:
 To add a databag, add fake_databags to the attributes in your 'kitchen.yml' following the example below.
 This will create a databag item named `tuser.json` and will put it in the `users` databag.
 ​
-```Ruby
+```ruby
 ---
 driver:
   name: vagrant
@@ -161,7 +161,7 @@ export TEST_GIT_SSH_KEY="FakeKeyValueFakeKeyValue"
 ```
 
 
-```Ruby
+```ruby
 suites:
   - name: default
     run_list:
@@ -191,7 +191,7 @@ The resulting databag (`git-credentials/test`) would look like this:
 To create multiple databags within the same kitchen.yml, follow this example:
 This will create a databag named `test.json` within the `git-credentials` folder, as well as a databag named `test2.json` within the `aws-credentials` folder.
 
-```Ruby
+```ruby
 suites:
   - name: default
     run_list:
