@@ -1,15 +1,13 @@
 driver:
   name: ec2
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   aws_ssh_key_id: <%= ENV['AWS_SSH_KEY'] %>
   security_group_ids:  <%= ENV['AWS_SECURITY_GROUPS'] %>
   region: <%= ENV['AWS_REGION'] %>
   availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
   require_chef_omnibus: true
-  subnet_id: <%= ENV['AWS_SUBNET'] %>
-  associate_public_ip: false
   interface: private
-  tags:
-    OWNER: <%= ENV['AWS_OWNER_TAG'] %>
 
 provisioner:
   name: chef_zero
@@ -22,14 +20,13 @@ platforms:
     driver:
       image_id: <%= ENV['AWS_CENTOS_AMI_ID'] %>
       instance_type: <%= ENV['LINUX_INSTANCE_SIZE'] %>
-      user_data: <%= ENV['LINUX_USER_DATA_PATH'] %>
     transport:
       username: <%= ENV['AWS_CENTOS_USERNAME'] %>
   - name: windows-2012r2
     driver:
       image_id: <%= ENV['AWS_WINDOWS2012R2_AMI_ID'] %>
       instance_type: <%= ENV['WINDOWS_INSTANCE_SIZE'] %>
-      user_data: <%= ENV['WINDOWS_USER_DATA_PATH'] %>
+      user_data: ./test/support/windows-user-data
     transport:
       name: winrm
 
