@@ -40,4 +40,3 @@ ENV['WINDOWS_USER_DATA_PATH']
 
 ####### For Testing Purposes
 ENV['TEST_GIT_SSH_KEY']
-```
