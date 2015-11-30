@@ -17,6 +17,4 @@ group :integration do
   gem 'kitchen-vagrant'
   gem 'kitchen-ec2'
   gem 'winrm-transport'
-  gem 'chef-dk'
-  gem 'omnibus'
 end
