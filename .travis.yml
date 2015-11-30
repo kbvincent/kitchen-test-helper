@@ -4,4 +4,5 @@ rvm:
 before_install:
 - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/travisci.pem
+- chef exec bundle update
 script: chef exec rake ec2
