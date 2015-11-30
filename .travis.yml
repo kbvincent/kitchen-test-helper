@@ -3,4 +3,4 @@ rvm:
   - 2.0.0
 before_install:
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/travisci.pem
-script: bundle exec rake ec2
+script: chef exec bundle exec rake ec2
