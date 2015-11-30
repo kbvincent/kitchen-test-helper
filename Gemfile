@@ -7,6 +7,8 @@ gem 'activesupport'
 group :test do
   gem 'chefspec'
   gem 'chef-zero'
+  gem 'rubocop'
+  gem 'foodcritic'
 end
 
 group :integration do

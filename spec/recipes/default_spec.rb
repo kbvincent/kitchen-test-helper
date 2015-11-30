@@ -16,7 +16,7 @@ describe 'kitchen-test-helper::default' do
     end
 
     it 'writes a log' do
-      expect(chef_run).to write_log('Dumping attributes to \'node.json\'')
+      expect(chef_run).to write_log('Dumping node attributes to \'node.json\'')
     end
 
     it 'runs a ruby_block to dump_node_attributes' do
@@ -45,7 +45,7 @@ describe 'kitchen-test-helper::default' do
     end
 
     it 'writes a log' do
-      expect(chef_run).to write_log('Dumping attributes to \'node.json\'')
+      expect(chef_run).to write_log('Dumping node attributes to \'node.json\'')
     end
 
     it 'runs a ruby_block to dump_node_attributes' do

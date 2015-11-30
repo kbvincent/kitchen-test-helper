@@ -13,6 +13,8 @@ This cookbook provides a suite of tools to assist with testing chef cookbooks wh
 [secure-databags]: #creating-faked-databags-with-secure-content
 [multiple-databags]: #multiple-databags
 
+Build Status: [![Build Status](https://travis-ci.org/kbvincent/kitchen-test-helper.svg?branch=master)](https://travis-ci.org/kbvincent/kitchen-test-helper)
+
 
 ## Node Attributes Dump
 
