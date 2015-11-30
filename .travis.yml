@@ -3,5 +3,4 @@ rvm:
   - 2.0.0
 before_install:
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/travisci.base64
-- cat ~/.ssh/travisci.base64 | tr -d ' ' | base64 --decode > ~/.ssh/travisci.pem
 script: bundle exec rake ec2
