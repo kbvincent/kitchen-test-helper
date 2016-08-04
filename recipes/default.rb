@@ -6,6 +6,6 @@
 
 include_recipe 'kitchen-test-helper::node-attributes'
 
-unless Chef::Config[:solo]
+if Chef::Config[:local_mode]
   include_recipe 'kitchen-test-helper::data-bag-faker' unless node['fake_databags'].nil?
 end
