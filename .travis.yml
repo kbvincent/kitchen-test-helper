@@ -1,18 +1,12 @@
-language:
-	- ruby
+language: ruby
 
-rvm:
-  	- 2.1.3
+rvm: 2.1.3
 
 before_install:
-	- gem install bundler -v 1.11.2
-	- rm ${BUNDLE_GEMFILE}.lock
-
+  - gem install bundler -v 1.11.2
+  - rm ${BUNDLE_GEMFILE}.lock
 before_script:
-	- bundle update
-
+  - bundle update
 cache:
-	- bundler
-
-script: 
-	- bundle exec rake test
+  - bundler
+script: bundle exec rake test
