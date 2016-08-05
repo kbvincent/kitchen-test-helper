@@ -10,7 +10,6 @@ RSpec.configure do |config|
   config.tty = true
   config.formatter = :documentation
   config.filter_run :focus => true
-  config.run_all_when_everything_filtered = true
   config.expect_with(:rspec) { |c| c.syntax = :expect }
 end
 
