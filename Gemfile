@@ -6,6 +6,7 @@ gem 'chef-handler-opsmatic', '= 0.0.19'
 gem 'chef-handler-profiler', '= 0.0.2'
 gem 'chef-zero', '= 4.7.0'
 gem 'test-kitchen', '= 1.10.2'
+gem 'kitchen-ec2', '= 1.0.1'
 
 # chefdk gem pinnings
 # https://github.com/chef/chef-dk/blob/bc4b19f8ae7f613a929058cf4cf53514713109e9/Gemfile.lock
@@ -109,7 +110,6 @@ group :integration do
   gem 'jmespath', '= 1.2.4'
   gem 'json', '= 1.8.3'
   gem 'json_pure', '= 1.8.3'
-  gem 'kitchen-ec2', '= 1.0.0'
   gem 'kitchen-inspec', '= 0.14.0'
   gem 'kitchen-vagrant', '= 0.20.0'
   gem 'knife-push', '= 1.0.1'

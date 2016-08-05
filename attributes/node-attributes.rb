@@ -1,3 +1,5 @@
+default['gd-test-helper']['show_node_output'] = false
+
 case node['platform_family']
 when 'debian', 'rhel', 'fedora'
   default['kitchen-test-helper']['node_attributes_path'] = '/tmp/serverspec/'
