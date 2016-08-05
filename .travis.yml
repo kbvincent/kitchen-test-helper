@@ -1,4 +1,18 @@
-language: ruby
+language:
+	- ruby
+
 rvm:
-  - 2.1.3
-script: bundle exec rake test
+  	- 2.1.3
+
+before_install:
+	- gem install bundler -v 1.11.2
+	- rm ${BUNDLE_GEMFILE}.lock
+
+before_script:
+	- bundle update
+
+cache:
+	- bundler
+
+script: 
+	- bundle exec rake test
